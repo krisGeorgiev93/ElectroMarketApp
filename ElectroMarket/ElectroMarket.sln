@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket", "ElectroMarket\ElectroMarket.csproj", "{D8D34C38-539B-4DBD-960C-F46EF9AE31C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket", "ElectroMarket\ElectroMarket.csproj", "{D8D34C38-539B-4DBD-960C-F46EF9AE31C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{308EB0B5-F9FC-4BD8-BA17-B8F481DE435B}"
 EndProject
@@ -11,17 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{75831493-D37C-4DAF-A1D0-EC8280F99BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Infrastructure", "ElectroMarket.Infrastructure\ElectroMarket.Infrastructure.csproj", "{2D3C6DBA-5D2A-4910-AAAF-841D0E70F2AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Infrastructure", "ElectroMarket.Infrastructure\ElectroMarket.Infrastructure.csproj", "{2D3C6DBA-5D2A-4910-AAAF-841D0E70F2AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.ViewModels", "ElectroMarket.ViewModels\ElectroMarket.ViewModels.csproj", "{8CC45DB1-8F4F-4CC5-B202-AC26A6051291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.ViewModels", "ElectroMarket.ViewModels\ElectroMarket.ViewModels.csproj", "{8CC45DB1-8F4F-4CC5-B202-AC26A6051291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Services.Data", "ElectroMarket.Services.Data\ElectroMarket.Services.Data.csproj", "{6A726422-386A-4F39-8F23-734A20716075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Services.Data", "ElectroMarket.Services.Data\ElectroMarket.Services.Data.csproj", "{6A726422-386A-4F39-8F23-734A20716075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Services.Data.Models", "ElectroMarket.Services.Data.Models\ElectroMarket.Services.Data.Models.csproj", "{CA4A8641-0748-4D3B-8B47-9A5EE0CA9DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Services.Data.Models", "ElectroMarket.Services.Data.Models\ElectroMarket.Services.Data.Models.csproj", "{CA4A8641-0748-4D3B-8B47-9A5EE0CA9DC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Data", "ElectroMarket.Data\ElectroMarket.Data.csproj", "{E0F246A6-2E4E-449D-885F-021E95FF198F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Data", "ElectroMarket.Data\ElectroMarket.Data.csproj", "{E0F246A6-2E4E-449D-885F-021E95FF198F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Data.Models", "ElectroMarket.Data.Models\ElectroMarket.Data.Models.csproj", "{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Data.Models", "ElectroMarket.Data.Models\ElectroMarket.Data.Models.csproj", "{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Common", "ElectroMarket.Common\ElectroMarket.Common.csproj", "{72B18B72-F175-4D2A-9056-FFC0EB123E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

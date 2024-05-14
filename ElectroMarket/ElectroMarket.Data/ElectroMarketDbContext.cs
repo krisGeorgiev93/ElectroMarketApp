@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace ElectroMarket.Data
 {
@@ -11,7 +12,7 @@ namespace ElectroMarket.Data
         public ElectroMarketDbContext(DbContextOptions<ElectroMarketDbContext> options)
             : base(options)
         {
-        }       
+        }
 
         public DbSet<Product> Products { get; set; }
 
@@ -25,8 +26,25 @@ namespace ElectroMarket.Data
 
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
+        public DbSet<Wishlist> Wishlists { get; set; }
+
+        public DbSet<WishlistProduct> WishlistProducts { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<WishlistProduct>()
+        .HasKey(wp => new { wp.WishlistId, wp.ProductId });
+
+            builder.Entity<WishlistProduct>()
+                .HasOne(wp => wp.Wishlist)
+                .WithMany(w => w.WishlistProducts)
+                .HasForeignKey(wp => wp.WishlistId);
+
+            builder.Entity<WishlistProduct>()
+                .HasOne(wp => wp.Product)
+                .WithMany(p => p.WishlistProducts)
+                .HasForeignKey(wp => wp.ProductId);
+
             builder.Entity<Order>()
                 .HasOne(o => o.Product)
                 .WithMany(p => p.Orders)
@@ -44,6 +62,10 @@ namespace ElectroMarket.Data
             .WithMany()
             .HasForeignKey(u => u.ShoppingCartId)
             .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Order>()
+             .Property(o => o.TotalAmount)
+             .HasColumnType("decimal(18,2)");
 
             //Assembly assembly = Assembly.GetAssembly(typeof(ElectroMarketDbContext))
             //   ?? Assembly.GetExecutingAssembly();

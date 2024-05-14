@@ -37,5 +37,7 @@ namespace ElectroMarket.Data.Models
         public ICollection<Review> Reviews { get; set; }
 
         public ICollection<Order> Orders { get; set; }
+
+        public ICollection<WishlistProduct> WishlistProducts { get; set; } = new List<WishlistProduct>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ElectroMarket.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -10,7 +11,7 @@ namespace ElectroMarket.Data
         public ElectroMarketDbContext(DbContextOptions<ElectroMarketDbContext> options)
             : base(options)
         {
-        }
+        }       
 
         public DbSet<Product> Products { get; set; }
 
@@ -44,9 +45,11 @@ namespace ElectroMarket.Data
             .HasForeignKey(u => u.ShoppingCartId)
             .OnDelete(DeleteBehavior.NoAction);
 
-            Assembly assembly = Assembly.GetAssembly(typeof(ElectroMarketDbContext))
-               ?? Assembly.GetExecutingAssembly();
-            builder.ApplyConfigurationsFromAssembly(assembly);
+            //Assembly assembly = Assembly.GetAssembly(typeof(ElectroMarketDbContext))
+            //   ?? Assembly.GetExecutingAssembly();
+
+            //builder.ApplyConfigurationsFromAssembly(assembly);
+
             base.OnModelCreating(builder);
         }
     }

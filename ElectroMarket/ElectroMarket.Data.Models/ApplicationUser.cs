@@ -16,6 +16,8 @@ namespace ElectroMarket.Data.Models
             this.Id = Guid.NewGuid();
         }
 
+        public Guid Id { get; set; }
+
         [Required]
         public string FirstName { get; set; } = null!;
 

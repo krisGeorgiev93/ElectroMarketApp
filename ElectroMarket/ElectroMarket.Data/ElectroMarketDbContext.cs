@@ -65,12 +65,7 @@ namespace ElectroMarket.Data
 
             builder.Entity<Order>()
              .Property(o => o.TotalAmount)
-             .HasColumnType("decimal(18,2)");
-
-            //Assembly assembly = Assembly.GetAssembly(typeof(ElectroMarketDbContext))
-            //   ?? Assembly.GetExecutingAssembly();
-
-            //builder.ApplyConfigurationsFromAssembly(assembly);
+             .HasColumnType("decimal(18,2)");                        
 
             base.OnModelCreating(builder);
         }

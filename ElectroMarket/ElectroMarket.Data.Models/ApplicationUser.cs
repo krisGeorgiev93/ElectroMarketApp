@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElectroMarket.Data.Models
 {
@@ -22,10 +17,7 @@ namespace ElectroMarket.Data.Models
         public string FirstName { get; set; } = null!;
 
         [Required]
-        public string LastName { get; set; } = null!;
-
-        [Required]
-        public DateTime BirthDate { get; set; }
+        public string LastName { get; set; } = null!;       
 
         public ICollection<Product> FavoriteProducts { get; set; }
 

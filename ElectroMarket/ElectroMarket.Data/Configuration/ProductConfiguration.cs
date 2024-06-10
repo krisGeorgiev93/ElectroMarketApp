@@ -30,6 +30,8 @@ namespace ElectroMarket.Data.Configuration
                 CategoryId = 4
             };
 
+            products.Add(product1);
+
             return products;
         }
     }

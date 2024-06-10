@@ -1,4 +1,5 @@
-﻿using ElectroMarket.Data.Models;
+﻿using ElectroMarket.Data.Configuration;
+using ElectroMarket.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -30,8 +31,15 @@ namespace ElectroMarket.Data
 
         public DbSet<WishlistProduct> WishlistProducts { get; set; }
 
+        public DbSet<Photo> Photos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new BrandConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new ProductConfiguration());
+
             builder.Entity<WishlistProduct>()
         .HasKey(wp => new { wp.WishlistId, wp.ProductId });
 

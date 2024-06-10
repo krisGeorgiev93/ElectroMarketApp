@@ -38,6 +38,8 @@ namespace ElectroMarket.Data.Models
 
         public ICollection<Order> Orders { get; set; } = null!;
 
+        public ICollection<Photo> Photos { get; set; } = null!;
+
         public ICollection<WishlistProduct> WishlistProducts { get; set; } = new List<WishlistProduct>();
     }
 }

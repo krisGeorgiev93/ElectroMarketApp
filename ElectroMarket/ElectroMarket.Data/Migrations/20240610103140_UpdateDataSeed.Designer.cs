@@ -4,6 +4,7 @@ using ElectroMarket.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectroMarket.Data.Migrations
 {
     [DbContext(typeof(ElectroMarketDbContext))]
-    partial class ElectroMarketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240610103140_UpdateDataSeed")]
+    partial class UpdateDataSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,7 +94,7 @@ namespace ElectroMarket.Data.Migrations
                         {
                             Id = new Guid("02c136c1-da74-43e1-bf76-c38a47b9e207"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f37b8a8-3446-4c6e-93d9-b8f8f4ab2bea",
+                            ConcurrencyStamp = "7b097cf7-fa9d-49d5-b2da-e99a274f22e0",
                             Email = "krisko@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Kristiyan",
@@ -100,7 +102,7 @@ namespace ElectroMarket.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "krisko@mail.com",
                             NormalizedUserName = "krisko@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF20Y/tiU4m5VuUm4Z4ZF1s3ggee1mV2T/050RccPqnziXcS283x6qUU6G0wolFe+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMeBxwSfkLCbMedNV1zBWokQ18Qh3ioMWsc/7XL6iKbr4quBkL/kMLvRueolpSS11Q==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "krisko@mail.com"
@@ -109,7 +111,7 @@ namespace ElectroMarket.Data.Migrations
                         {
                             Id = new Guid("a87fadc6-bf60-4588-9be3-a983925ba502"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e86a7519-461f-469a-9017-954c9ec8e811",
+                            ConcurrencyStamp = "7eea57a2-06d1-4e4b-ae24-c5c5162b59f2",
                             Email = "ivan@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -117,7 +119,7 @@ namespace ElectroMarket.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ivan@mail.com",
                             NormalizedUserName = "ivan@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN16B85cV0pDYNiq9qzKkemvRdzoSODP0WAi1m9ZCxq+Ocx6CTjN9O6DPhDCl0xp6w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF5HN/867OcDvxfUYsIhzmd0Cwv1vLH6lwaQYkKxEH/rQxUKpRzKH/kU7cV24vc8Hg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "ivan@mail.com"
@@ -229,28 +231,6 @@ namespace ElectroMarket.Data.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("ElectroMarket.Data.Models.Photo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Photos");
-                });
-
             modelBuilder.Entity("ElectroMarket.Data.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -295,19 +275,6 @@ namespace ElectroMarket.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d51019ee-1cbf-41f6-84b1-7b5618bc93f9"),
-                            BrandId = 1,
-                            CategoryId = 4,
-                            Description = "Philips 60W LED A60 E27 Light Bulb",
-                            ImageUrl = "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTl9RUhMwxf-PE2XRvWYcbOnQwhPzLTVy5H5LnKQocA3cn7HUJYk4zY7ww9iSgvoQELascN0TdYDEdjzcrfprZPFcNe2apH8mKiycZA8f4NeUFRv-cgwP1QCg",
-                            IsActive = false,
-                            Price = 5.5,
-                            Title = "Light Bulb Philips"
-                        });
                 });
 
             modelBuilder.Entity("ElectroMarket.Data.Models.Review", b =>
@@ -628,17 +595,6 @@ namespace ElectroMarket.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ElectroMarket.Data.Models.Photo", b =>
-                {
-                    b.HasOne("ElectroMarket.Data.Models.Product", "Product")
-                        .WithMany("Photos")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("ElectroMarket.Data.Models.Product", b =>
                 {
                     b.HasOne("ElectroMarket.Data.Models.ApplicationUser", null)
@@ -799,8 +755,6 @@ namespace ElectroMarket.Data.Migrations
             modelBuilder.Entity("ElectroMarket.Data.Models.Product", b =>
                 {
                     b.Navigation("Orders");
-
-                    b.Navigation("Photos");
 
                     b.Navigation("Reviews");
 

@@ -29,6 +29,8 @@ namespace ElectroMarket.Data.Configuration
                 NormalizedUserName = "krisko@mail.com",
                 Email = "krisko@mail.com",
                 NormalizedEmail = "krisko@mail.com",
+                FirstName = "Kristiyan",
+                LastName = "Georgiev"                
             };
 
             user1.PasswordHash =
@@ -43,6 +45,8 @@ namespace ElectroMarket.Data.Configuration
                 NormalizedUserName = "ivan@mail.com",
                 Email = "ivan@mail.com",
                 NormalizedEmail = "ivan@mail.com",
+                FirstName = "Ivan",
+                LastName = "Ivanov"
             };
 
             user2.PasswordHash =

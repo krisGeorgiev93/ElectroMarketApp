@@ -13,7 +13,7 @@ namespace ElectroMarket.Data.Models
         public Guid AppUserId { get; set; }
 
         [ForeignKey(nameof(AppUserId))]
-        public ApplicationUser AppUser { get; set; }
+        public ApplicationUser AppUser { get; set; } = null!;
         public ICollection<WishlistProduct> WishlistProducts { get; set; } = new List<WishlistProduct>();
     }
 }

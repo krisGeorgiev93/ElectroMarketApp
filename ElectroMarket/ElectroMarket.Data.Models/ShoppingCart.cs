@@ -17,11 +17,11 @@ namespace ElectroMarket.Data.Models
         public Guid ProductId { get; set; }
 
         [ForeignKey(nameof(ProductId))]
-        public Product Product { get; set; }
+        public Product Product { get; set; } = null!;
 
         public Guid UserId { get; set; }
 
         [ForeignKey(nameof(UserId))]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; } = null!;
     }
 }

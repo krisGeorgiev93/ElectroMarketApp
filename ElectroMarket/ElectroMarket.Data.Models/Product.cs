@@ -32,11 +32,11 @@ namespace ElectroMarket.Data.Models
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; }
+        public Category Category { get; set; } = null!;
 
-        public ICollection<Review> Reviews { get; set; }
+        public ICollection<Review> Reviews { get; set; } = null!;
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; } = null!;
 
         public ICollection<WishlistProduct> WishlistProducts { get; set; } = new List<WishlistProduct>();
     }

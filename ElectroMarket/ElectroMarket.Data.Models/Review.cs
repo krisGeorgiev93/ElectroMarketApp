@@ -13,7 +13,7 @@ namespace ElectroMarket.Data.Models
 
         public int Rating { get; set; }
 
-        public string ReviewComment { get; set; }
+        public string ReviewComment { get; set; } = null!;
 
         public Guid GuestId { get; set; }
 

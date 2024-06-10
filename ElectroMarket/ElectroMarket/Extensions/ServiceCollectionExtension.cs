@@ -1,4 +1,6 @@
 ﻿using ElectroMarket.Data;
+using ElectroMarket.Services.Data;
+using ElectroMarket.Services.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,11 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IPhotoService, PhotoService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IBrandService, BrandService>();
+
             return services;
         }
 

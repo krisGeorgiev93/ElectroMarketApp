@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Data", "Elect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Data.Models", "ElectroMarket.Data.Models\ElectroMarket.Data.Models.csproj", "{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroMarket.Common", "ElectroMarket.Common\ElectroMarket.Common.csproj", "{72B18B72-F175-4D2A-9056-FFC0EB123E3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectroMarket.Common", "ElectroMarket.Common\ElectroMarket.Common.csproj", "{72B18B72-F175-4D2A-9056-FFC0EB123E3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElektroMarket.Web.ViewModels", "ElektroMarket.Web.ViewModels\ElektroMarket.Web.ViewModels.csproj", "{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B18B72-F175-4D2A-9056-FFC0EB123E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{CA4A8641-0748-4D3B-8B47-9A5EE0CA9DC9} = {0A568D11-51BF-486A-963F-4E24C067C38D}
 		{E0F246A6-2E4E-449D-885F-021E95FF198F} = {308EB0B5-F9FC-4BD8-BA17-B8F481DE435B}
 		{ABEED0E2-23B5-4E92-BA6E-C75ADCF98D53} = {308EB0B5-F9FC-4BD8-BA17-B8F481DE435B}
+		{8DC210BF-EEC7-40BD-B421-5CF2F45DEEEA} = {75831493-D37C-4DAF-A1D0-EC8280F99BF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A74F5924-8983-43CD-BC9F-5C864A7E2003}

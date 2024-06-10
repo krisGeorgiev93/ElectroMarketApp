@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElectroMarket.Common
+﻿namespace ElectroMarket.Common
 {
     public class ValidationConstants
     {
+        public static class Product
+        {
+            public const int titleMinLength = 2;
+            public const int titleMaxLength = 50;
+
+            public const int descriptionMinLength = 5;
+            public const int descriptionMaxLength = 500;
+
+
+
+        }
     }
 }

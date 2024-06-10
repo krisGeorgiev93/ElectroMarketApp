@@ -1,3 +1,5 @@
+using ElectroMarket.Data.Configuration;
+
 namespace ElectroMarket
 {
     public class Program
@@ -12,6 +14,9 @@ namespace ElectroMarket
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddApplicationServices();
+
+            builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
 
             var app = builder.Build();
             

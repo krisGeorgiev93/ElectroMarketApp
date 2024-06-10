@@ -10,6 +10,10 @@ namespace ElectroMarket.Data.Models
 {
     public class Product
     {
+        public Product()
+        {
+            this.Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
 
         [Required]
@@ -28,7 +32,7 @@ namespace ElectroMarket.Data.Models
         public int BrandId { get; set; }
 
         [ForeignKey(nameof(BrandId))]
-        public Brand Brand { get; set; }
+        public Brand Brand { get; set; } = null!;
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]

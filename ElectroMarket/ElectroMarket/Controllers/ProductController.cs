@@ -45,5 +45,41 @@ namespace ElectroMarket.Controllers
 
             return RedirectToAction("All", "Product");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> All(int page = 1, int itemsPerPage = 10)
+        {
+            var allProducts = await productService.GetAllProductsAsync();
+
+            var totalItems = allProducts.Count();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)itemsPerPage);
+
+            var productsToDisplay = allProducts
+                .Skip((page - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+                .Select(p => new AllProductsViewModel
+                {
+                    Title = p.Title,
+                    Description = p.Description,
+                    Price = p.Price,
+                    ImageUrl = p.ImageUrl,
+                    Brand = p.Brand,
+                    Category = p.Category
+                }).ToList();
+
+            var viewModel = new ProductsPageViewModel
+            {
+                Products = productsToDisplay,
+                Pagination = new PaginationViewModel
+                {
+                    CurrentPage = page,
+                    TotalPages = totalPages,
+                    TotalItems = totalItems,
+                    ItemsPerPage = itemsPerPage
+                }
+            };
+
+            return View(viewModel);
+        }
     }
 }

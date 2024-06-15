@@ -33,5 +33,19 @@ namespace ElectroMarket.Services.Data
             await this.dbContext.Products.AddAsync(product);
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync()
+        {
+            return dbContext.Products
+               .Select(p => new AllProductsViewModel
+               {
+                   Title = p.Title,
+                   Description = p.Description,
+                   Price = p.Price,
+                   ImageUrl = p.ImageUrl,
+                   Brand = p.Brand.Name,
+                   Category = p.Category.Name
+               }).ToList();
+        }
     }
 }

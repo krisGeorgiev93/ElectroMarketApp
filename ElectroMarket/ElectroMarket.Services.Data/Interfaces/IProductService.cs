@@ -6,5 +6,8 @@ namespace ElectroMarket.Services.Data.Interfaces
     {
         Task AddProductAsync(ProductFormModel productFormModel);
 
+        Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync();
+
+
     }
 }

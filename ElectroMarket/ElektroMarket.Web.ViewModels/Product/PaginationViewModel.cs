@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElektroMarket.Web.ViewModels.Product
+﻿namespace ElektroMarket.Web.ViewModels.Product
 {
     public class PaginationViewModel
     {

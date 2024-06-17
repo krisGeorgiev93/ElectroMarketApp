@@ -49,7 +49,18 @@ namespace ElectroMarket.Services.Data
             }
         }
 
-       
+        public async Task EditProductAsync(string id, ProductFormModel model)
+        {
+            var product = await dbContext.Products.FindAsync(model.Id);             
+            
+            product.Title = model.Title;
+            product.Description = model.Description;
+            product.Price = model.Price;
+            product.BrandId = model.BrandId;
+            product.CategoryId = model.CategoryId;
+
+            await dbContext.SaveChangesAsync();
+        }
 
         public async Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync()
         {
@@ -83,6 +94,25 @@ namespace ElectroMarket.Services.Data
                 Price = product.Price,
             };
             return productForm;
+        }
+
+        public async Task<ProductFormModel> GetProductForEditByIdAsync(string id)
+        {
+            Product product = await this
+                 .dbContext
+                 .Products
+                 .Include(p => p.Category)
+                 .Include(p=> p.Brand)                
+                 .FirstAsync(r => r.Id.ToString() == id);
+
+            return new ProductFormModel()
+            {
+               Title = product.Title,
+               Description = product.Description,
+               Price = product.Price,
+               BrandId = product.Brand.Id,
+               CategoryId = product.Category.Id
+            };
         }
 
         public async Task<bool> ProductExistsByIdAsync(string id)

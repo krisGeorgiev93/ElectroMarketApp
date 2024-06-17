@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Product\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.25" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
@@ -26,6 +30,18 @@
     <ProjectReference Include="..\ElectroMarket.Services.Data.Models\ElectroMarket.Services.Data.Models.csproj" />
     <ProjectReference Include="..\ElectroMarket.Services.Data\ElectroMarket.Services.Data.csproj" />
     <ProjectReference Include="..\ElectroMarket.ViewModels\ElectroMarket.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Product\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Product\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -29,7 +29,7 @@ namespace ElectroMarket.Controllers
             {
                 Categories = await this.categoryService.GetAllCategoriesAsync(),
                 Brands = await this.brandService.GetAllBrandsAsync()
-            };            
+            };
             return View(model);
         }
 
@@ -100,6 +100,43 @@ namespace ElectroMarket.Controllers
             }
 
             await productService.DeleteProductAsync(id);
+
+            return RedirectToAction("All");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            var product = await productService.GetProductByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            ProductFormModel model = await this.productService.GetProductForEditByIdAsync(id);
+            model.Categories = await this.categoryService.GetAllCategoriesAsync();
+            model.Brands = await this.brandService.GetAllBrandsAsync();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, ProductFormModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Categories = await this.categoryService.GetAllCategoriesAsync();
+                model.Brands = await this.brandService.GetAllBrandsAsync();
+                return View(model);
+            }
+
+            bool productExists = await this.productService.ProductExistsByIdAsync(id);
+            if (!productExists)
+            {
+                throw new InvalidOperationException("Product not found");
+            }
+
+            await productService.EditProductAsync(id,model);
 
             return RedirectToAction("All");
         }

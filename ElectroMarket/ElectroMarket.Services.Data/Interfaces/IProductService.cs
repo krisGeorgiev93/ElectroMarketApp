@@ -15,6 +15,9 @@ namespace ElectroMarket.Services.Data.Interfaces
 
         Task<ProductFormModel> GetProductByIdAsync(string id);
 
+        Task EditProductAsync(string id, ProductFormModel model);
+
+        Task<ProductFormModel> GetProductForEditByIdAsync(string id);
 
 
     }

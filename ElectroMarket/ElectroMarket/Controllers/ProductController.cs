@@ -59,6 +59,7 @@ namespace ElectroMarket.Controllers
                 .Take(itemsPerPage)
                 .Select(p => new AllProductsViewModel
                 {
+                    Id = p.Id,
                     Title = p.Title,
                     Description = p.Description,
                     Price = p.Price,
@@ -80,6 +81,27 @@ namespace ElectroMarket.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool productExists = await this.productService.ProductExistsByIdAsync(id);
+
+            if (!productExists)
+            {
+                throw new Exception("This product does not exists");
+            }
+
+            var product = await productService.GetProductByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            await productService.DeleteProductAsync(id);
+
+            return RedirectToAction("All");
         }
     }
 }

@@ -31,12 +31,12 @@
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            width: 300px; 
+            width: 300px;
         }
 
         .card-img-top {
             width: 100%;
-            height: 200px; 
+            height: 200px;
             object-fit: contain;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -56,6 +56,20 @@
             color: #666;
             font-size: 0.9rem;
         }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+            .btn-delete:hover {
+                background-color: #c82333;
+            }
 
         .pagination {
             margin-top: 20px;
@@ -99,6 +113,10 @@
                             <p class="card-text"><strong>Price:</strong> @product.Price.ToString("C")</p>
                             <p class="card-text"><strong>Brand:</strong> @product.Brand</p>
                             <p class="card-text"><strong>Category:</strong> @product.Category</p>
+                            <form asp-action="Delete" method="post">
+                                <input type="hidden" name="id" value="@product.Id" />
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

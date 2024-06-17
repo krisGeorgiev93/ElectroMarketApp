@@ -12,6 +12,7 @@ namespace ElektroMarket.Web.ViewModels.Product
             this.Brands = new HashSet<SelectBrandFormModel>();
             this.Categories = new HashSet<SelectCategoryFormModel>();
         }
+        public Guid Id { get; set; }
 
         [Required]
         [MinLength(titleMinLength)]

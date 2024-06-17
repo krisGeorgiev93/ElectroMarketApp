@@ -2,6 +2,7 @@
 using ElectroMarket.Data.Models;
 using ElectroMarket.Services.Data.Interfaces;
 using ElektroMarket.Web.ViewModels.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElectroMarket.Services.Data
 {
@@ -18,7 +19,7 @@ namespace ElectroMarket.Services.Data
 
         public async Task AddProductAsync(ProductFormModel productFormModel)
         {
-           var photo = await this.photoService.AddPhotoAsync(productFormModel.Image);
+            var photo = await this.photoService.AddPhotoAsync(productFormModel.Image);
 
             Product product = new Product()
             {
@@ -34,11 +35,28 @@ namespace ElectroMarket.Services.Data
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task DeleteProductAsync(string id)
+        {
+            var productForDelete = await dbContext.Products.FirstAsync(p => p.Id.ToString() == id);
+            if (productForDelete != null)
+            {
+                dbContext.Products.Remove(productForDelete);
+                await dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new InvalidOperationException("Product not found.");
+            }
+        }
+
+       
+
         public async Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync()
         {
             return dbContext.Products
                .Select(p => new AllProductsViewModel
                {
+                   Id = p.Id,
                    Title = p.Title,
                    Description = p.Description,
                    Price = p.Price,
@@ -46,6 +64,31 @@ namespace ElectroMarket.Services.Data
                    Brand = p.Brand.Name,
                    Category = p.Category.Name
                }).ToList();
+        }
+
+        public async Task<ProductFormModel> GetProductByIdAsync(string id)
+        {
+           var product = await this.dbContext.Products.FirstAsync(p=> p.Id.ToString() == id);
+
+            if (product == null)
+            {
+                throw new InvalidOperationException("Product not found.");
+            }
+
+            var productForm = new ProductFormModel
+            {
+                Id = product.Id,
+                Title = product.Title,
+                Description = product.Description,
+                Price = product.Price,
+            };
+            return productForm;
+        }
+
+        public async Task<bool> ProductExistsByIdAsync(string id)
+        {
+            bool isExist = await this.dbContext.Products.AnyAsync(p => p.Id.ToString() == id);
+            return isExist;
         }
     }
 }
